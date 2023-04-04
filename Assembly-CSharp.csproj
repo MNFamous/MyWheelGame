@@ -56,11 +56,11 @@
     <Analyzer Include="D:\Visual Studio\Visual Studio IDE\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AddSlice.cs" />
+    <Compile Include="Assets\Scripts\CursorScript.cs" />
     <Compile Include="Assets\Scripts\SpinScript.cs" />
+    <Compile Include="Assets\Scripts\AddSlice.cs" />
     <Compile Include="Assets\Scripts\Slice.cs" />
     <Compile Include="Assets\Scripts\WheelManager.cs" />
-    <Compile Include="Assets\Scripts\CursorScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

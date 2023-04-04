@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Slice : MonoBehaviour
 {
-    private bool _setupCondition= false;
+    private bool _setupCondition= false, _audioCondition= false;
     private GameObject _prefab;
     public string sliceValue;
     public float fillAmount;
     public Color fillColor;
+    AudioSource clickSound;
+    RaycastHit2D hit;
 
     public void SliceSetup(Color fillColor, string value, float fillAmount)
     {
@@ -21,6 +23,7 @@ public class Slice : MonoBehaviour
 
     private void Start()
     {
+        clickSound = this.GetComponent<AudioSource>();
         _prefab = this.gameObject;
         StartCoroutine(SliceSetupCheck());
     }
@@ -36,5 +39,24 @@ public class Slice : MonoBehaviour
     {
         _prefab.GetComponent<Image>().fillAmount = fillAmount;
         _prefab.GetComponent<Image>().color = fillColor;
+        if (Physics2D.Linecast(this.transform.position, transform.TransformDirection(Vector3.up)).collider != null && _audioCondition == false)
+        {
+            PlayAudio();
+            hit = Physics2D.Linecast(this.transform.position, transform.TransformDirection(Vector3.up));
+            Debug.Log(hit.collider.tag);
+            _audioCondition = true;
+        }
+        else
+        {
+            _audioCondition = false;
+        }
+    }
+
+    void PlayAudio()
+    {
+
+        clickSound.Play();
+
     }
 }
+
