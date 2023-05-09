@@ -8,7 +8,7 @@ public class CursorScript : MonoBehaviour
     //For returning last value on the cursor.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.GetComponent<Slice>().sliceValue);
+        //Debug.Log(collision.gameObject.GetComponent<Slice>().sliceValue);
         _resultValue = collision.gameObject.GetComponent<Slice>().sliceValue;
 
     }
